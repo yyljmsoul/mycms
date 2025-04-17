@@ -1,0 +1,11 @@
+{
+    "name": "Oss",
+    "ident": "Oss",
+    "description": "Oss",
+    "version": "1.0.0",
+    "author": "mycms",
+    "providers": [
+        "Addons\\Oss\\Providers\\ServiceProvider"
+    ],
+    "home": "/admin/addon/oss/config"
+}

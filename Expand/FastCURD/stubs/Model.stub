@@ -1,0 +1,10 @@
+<?php
+
+namespace Modules\{module}\Models;
+
+use App\Models\MyModel;
+
+class {camel}Model extends MyModel
+{
+    protected $table = '{table}';
+}

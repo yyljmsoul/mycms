@@ -1,0 +1,6 @@
+Route::get('/{lower}', '{camel}Controller@index')->name('{module}.{lower}');
+        Route::get('/{lower}/create', '{camel}Controller@create')->name('{module}.{lower}.create');
+        Route::post('/{lower}/create', '{camel}Controller@store');
+        Route::get('/{lower}/edit', '{camel}Controller@edit')->name('{module}.{lower}.edit');
+        Route::post('/{lower}/edit', '{camel}Controller@update');
+        Route::post('/{lower}/destroy', '{camel}Controller@destroy');

@@ -1,0 +1,14 @@
+@extends("layouts.common")
+@section('page-content-wrapper')
+    <form id="app-form">
+
+{formFields}
+
+        <div class="hr-line"></div>
+        <div class="layui-form-item text-center">
+            <button type="submit" class="btn btn-primary waves-effect waves-light">确认</button>
+            <button type="reset" class="btn btn-light waves-effect">重置</button>
+        </div>
+
+    </form>
+@endsection

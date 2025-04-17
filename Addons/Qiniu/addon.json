@@ -1,0 +1,11 @@
+{
+    "name": "七牛",
+    "ident": "Qiniu",
+    "description": "七牛云存储",
+    "version": "1.0.0",
+    "author": "mycms",
+    "providers": [
+        "Addons\\Qiniu\\Providers\\ServiceProvider"
+    ],
+    "home": "/admin/addon/qiniu/config"
+}

@@ -1,0 +1,11 @@
+{
+    "name": "留言板",
+    "ident": "MsgBoard",
+    "description": "MsgBoard",
+    "version": "1.0.0",
+    "author": "mycms",
+    "providers": [
+        "Addons\\MsgBoard\\Providers\\ServiceProvider"
+    ],
+    "home": "/admin/addon/msg_board"
+}

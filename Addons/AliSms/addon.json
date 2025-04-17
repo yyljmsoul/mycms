@@ -1,0 +1,11 @@
+{
+    "name": "AliSms",
+    "ident": "AliSms",
+    "description": "AliSms",
+    "version": "1.0.0",
+    "author": "mycms",
+    "providers": [
+        "Addons\\AliSms\\Providers\\ServiceProvider"
+    ],
+    "home": "/admin/addon/alisms/"
+}

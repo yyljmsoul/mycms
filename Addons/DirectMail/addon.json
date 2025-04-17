@@ -1,0 +1,11 @@
+{
+    "name": "邮件推送",
+    "ident": "DirectMail",
+    "description": "阿里云邮件推送",
+    "version": "1.0.0",
+    "author": "mycms",
+    "providers": [
+        "Addons\\DirectMail\\Providers\\ServiceProvider"
+    ],
+    "home": "/admin/addon/directmail"
+}

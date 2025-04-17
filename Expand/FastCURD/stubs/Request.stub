@@ -1,0 +1,27 @@
+<?php
+
+namespace Modules\{module}\Http\Requests;
+
+use App\Http\Requests\MyRequest;
+
+class {camel}Request extends MyRequest
+{
+    public function authorize(): bool
+    {
+        return true;
+    }
+
+    public function rules(): array
+    {
+        return [
+{requestFields}
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+
+        ];
+    }
+}

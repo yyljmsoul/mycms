@@ -1,0 +1,13 @@
+{
+    "name": "Mp",
+    "alias": "mp",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Mp\\Providers\\MpServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

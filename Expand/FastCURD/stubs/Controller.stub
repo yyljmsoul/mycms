@@ -1,0 +1,14 @@
+<?php
+
+namespace Modules\{module}\Http\Controllers\Admin;
+
+use App\Http\Controllers\MyAdminController;
+
+class {camel}Controller extends MyAdminController
+{
+    public $view = 'admin.{lower}.';
+
+    public $model = 'Modules\{module}\Models\{camel}Model';
+
+    public $request = 'Modules\{module}\Http\Requests\{camel}Request';
+}

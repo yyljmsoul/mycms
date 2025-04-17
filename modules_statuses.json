@@ -1,0 +1,9 @@
+{
+    "System": true,
+    "User": true,
+    "Cms": true,
+    "Shop": true,
+    "Api": true,
+    "Order": true,
+    "Mp": true
+}

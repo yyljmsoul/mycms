@@ -1,0 +1,42 @@
+@extends("layouts.common")
+@section('page-content-wrapper')
+    <form id="app-form" class="layui-form layuimini-form" method="post">
+        <ul class="nav nav-tabs nav-tabs-custom nav-justified" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#base" role="tab">
+                    <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
+                    <span class="d-none d-sm-block">基本信息</span>
+                </a>
+            </li>
+            @foreach(system_tap_lang() as $lg => $lang)
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#lang-{{$lg}}" role="tab">
+                        <span class="d-block d-sm-none"><i class="far fa-user"></i></span>
+                        <span class="d-none d-sm-block">{{$lang}}</span>
+                    </a>
+                </li>
+            @endforeach
+        </ul>
+            <div class="tab-content p-3 text-muted">
+                <div class="tab-pane active" id="base" role="tabpanel">
+
+{formFields}
+
+                </div>
+                @foreach(system_tap_lang() as $abb => $lang)
+                    <div class="tab-pane" id="lang-{{$abb}}" role="tabpanel">
+
+{formLangFields}
+
+                    </div>
+                @endforeach
+            </div>
+
+        <div class="hr-line"></div>
+        <div class="layui-form-item text-center">
+            <button type="submit" class="btn btn-primary waves-effect waves-light">确认</button>
+            <button type="reset" class="btn btn-light waves-effect">重置</button>
+        </div>
+
+    </form>
+@endsection

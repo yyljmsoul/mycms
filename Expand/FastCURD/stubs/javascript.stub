@@ -1,0 +1,45 @@
+define(["jquery", "easy-admin"], function ($, ea) {
+
+    var init = {
+        table_elem: '#currentTable',
+        table_render_id: 'currentTableRenderId',
+        index_url: '/{module}/{lower}',
+        add_url: '/{module}/{lower}/create',
+        edit_url: '/{module}/{lower}/edit',
+        delete_url: '/{module}/{lower}/destroy',
+    };
+
+    return {
+
+        index: function () {
+
+            ea.table.render({
+                init: init,
+                cols: [[
+                    {type: "checkbox"},
+                    {field: 'id', minWidth: 80, title: 'ID'},
+{fields}
+                    {field: 'created_at', minWidth: 120, title: '创建时间'},
+                    {field: 'updated_at', minWidth: 120, title: '更新时间'},
+                    {
+                        width: 250,
+                        title: '操作',
+                        templet: ea.table.tool,
+                        operat: [
+                            'edit',
+                            'delete'
+                        ]
+                    }
+                ]],
+            });
+
+            ea.listen();
+        },
+        create: function () {
+            ea.listen();
+        },
+        edit: function () {
+            ea.listen();
+        }
+    };
+});
