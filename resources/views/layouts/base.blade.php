@@ -1,94 +1,66 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>管理后台 - {{system_config('site_name')}}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="/mycms/admin/images/logo-sm.png">
 
-    <!-- AdminLTE CSS -->
-       <!-- layui -->
+    <!-- layui -->
     <link rel="stylesheet" href="/static/plugins/layui/css/layui.css">
-<!-- Google Font: Source Sans Pro -->
+    <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/google-fonts/google.fonts.css">
-<!-- Font Awesome -->
-<link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/fontawesome-free/css/all.min.css">
-<!-- Ionicons -->
-<link rel="stylesheet" href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css">
-<!-- Tempusdominus Bootstrap 4 -->
-<link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-<!-- iCheck -->
-<link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-<!-- Theme style -->
-<link rel="stylesheet" href="/static/plugins/AdminLTE/dist/css/AdminLTE.min.css">
-<!-- overlayScrollbars -->
-<link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-<!-- Daterange picker -->
-<link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/daterangepicker/daterangepicker.css">
-<!-- Bootstrap Color Picker -->
-<link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
-<!-- Toastr -->
-<link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/toastr/toastr.min.css">
-<!-- pace-progress -->
-<link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/pace-progress/themes/black/pace-theme-flat-top.css">
-<!-- jQuery -->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/static/plugins/AdminLTE/dist/css/AdminLTE.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/daterangepicker/daterangepicker.css">
+    <!-- Bootstrap Color Picker -->
+    <link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/toastr/toastr.min.css">
+    <!-- pace-progress -->
+    <link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/pace-progress/themes/black/pace-theme-flat-top.css">
+    <!-- webuploader -->
+    <link rel="stylesheet" href="/static/plugins/webuploader-0.1.5/webuploader.css">
+    <!-- Bootstrap Table -->
+    <link rel="stylesheet" href="/static/plugins/bootstrap-table/bootstrap-table.min.css" />
+    <link rel="stylesheet" href="/static/plugins/bootstrap-table/extensions/fixed-columns/bootstrap-table-fixed-columns.min.css"/>
+    <!-- jQueryTagsInput -->
+    <link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/jQueryTagsInput/jquery.tagsinput.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- CodeMirror -->
+    <link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/codemirror/codemirror.css">
+    <link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/codemirror/theme/monokai.css">
+    <!-- jquery-treegrid -->
+    <link rel="stylesheet" href="/static/plugins/jquery-treegrid/css/jquery.treegrid.css">
+    <!-- jQuery -->
 <script src="/static/plugins/AdminLTE/plugins/jquery/jquery.min.js"></script>
 <!-- layui -->
 <script src="/static/plugins/layui/layui.js"></script>
 <!-- webuploader -->
 <link rel="stylesheet" href="/static/plugins/webuploader-0.1.5/webuploader.css">
 <script src="/static/plugins/webuploader-0.1.5/webuploader.min.js"></script>
-<!-- ckeditor4 -->
-<script src="/static/plugins/ckeditor/ckeditor.js"></script>
-<!-- Bootstrap Table -->
-<link rel="stylesheet" href="/static/plugins/bootstrap-table/bootstrap-table.min.css" />
-<!-- layer 弹层组件 -->
-<script>
-    layui.use('layer',
-        function () {
-            var layer = layui.layer;
-        })
-</script>
-<!-- zTree 树节点组件 -->
-<script type="text/javascript" src="/static/plugins/zTree_v3/js/jquery.ztree.core.js"></script>
-<script type="text/javascript" src="/static/plugins/zTree_v3/js/jquery.ztree.excheck.js"></script>
-<!-- jQueryTagsInput -->
-<link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/jQueryTagsInput/jquery.tagsinput.css">
-<script src="/static/plugins/AdminLTE/plugins/jQueryTagsInput/jquery.tagsinput.js"></script>
-<!-- Select2 -->
-<link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/select2/css/select2.min.css">
-<link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
-<script src="/static/plugins/AdminLTE/plugins/select2/js/select2.full.min.js"></script>
-<!-- CodeMirror -->
-<link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/codemirror/codemirror.css">
-<link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/codemirror/theme/monokai.css">
+    <!-- SIYUCMS -->
+    <link rel="stylesheet" href="/static/plugins/AdminLTE/dist/css/siyucms.css?v=20211203">
 
-<!-- SIYUCMS -->
-<link rel="stylesheet" href="/static/plugins/AdminLTE/dist/css/siyucms.css?v=20211203">
-<script src="/static/plugins/siyu-ui.js?v=20211203"></script>
-<script src="/static/plugins/siyucms.js?v=20211203"></script>
-
-    <style>
-        .text-end-cms {
-            text-align: right;
-        }
-
-        @media all and (max-width: 768px) {
-            .text-end-cms {
-                text-align: left;
-            }
-        }
-    </style>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <script>
         const SYSTEM_PREFIX = '{{system_config('admin_prefix') ?: 'admin'}}';
     </script>
 </head>
-
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed pace-primary text-sm " data-display_mode="1">
 <div class="wrapper">
 
     <!-- Navbar -->
@@ -98,49 +70,82 @@
             <li class="nav-item">
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{route('system.index')}}" class="nav-link">首页</a>
+        </ul>
+
+        <!-- Left navbar links -->
+        <ul class="navbar-nav js_left_menu">
+            <li class="nav-item active">
+                <a class="nav-link" href="javascript:;">
+                    <i class="fas fa-cog"></i>
+                    <span>主导航</span>
+                </a>
             </li>
+            <!-- 这里可以根据实际情况动态生成导航 -->
+            @foreach($system_menus[0] as $menu)
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:;">
+                        <i class="{{$menu['icon']}}"></i>
+                        <span>{{$menu['title']}}</span>
+                    </a>
+                </li>
+            @endforeach
         </ul>
 
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
-            <!-- Full screen button -->
+            <!-- User Account Menu -->
+            <li class="nav-item dropdown user user-menu">
+                <!-- Menu Toggle Button -->
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img src="/static/plugins/AdminLTE/dist/img/user2-160x160.jpg" class="user-image">
+                    <span class="d-none d-lg-block">{{$auth_admin_user->name}}</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="user-header">
+                        <img src="/static/plugins/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle">
+                        <h5>上次登录时间：{{$auth_admin_user->last_login_time ?? '暂无记录'}}</h5>
+                        <h5>上次登录IP：{{$auth_admin_user->last_login_ip ?? '暂无记录'}}</h5>
+                    </li>
+                    <li class="user-footer">
+                        <div class="pull-left">
+                            <a href="{{str_replace("/admin/", "/" . (system_config('admin_prefix') ?: 'admin') . "/", '/admin/Admin/edit')}}" class="nav-link btn btn-default btn-flat" style="padding: 0.375rem 0.75rem;height: auto;">资料</a>
+                        </div>
+                        <div class="pull-right">
+                            <a href="{{str_replace("/admin/", "/" . (system_config('admin_prefix') ?: 'admin') . "/", '/admin/Login/logout')}}" class="btn btn-default btn-flat">退出</a>
+                        </div>
+                    </li>
+                </ul>
+            </li>
             <li class="nav-item">
-                <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                <a class="nav-link" data-widget="fullscreen" href="#" role="button" title="全屏">
                     <i class="fas fa-expand-arrows-alt"></i>
                 </a>
             </li>
-            <!-- User dropdown -->
-            <li class="nav-item dropdown">
-                <a class="nav-link" data-toggle="dropdown" href="#">
-                    <span class="d-none d-xl-inline-block ms-1">{{$auth_admin_user->name}}</span>
-                    <i class="fas fa-angle-down"></i>
+            <li class="nav-item">
+                <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button" title="自定义">
+                    <i class="fas fa-palette"></i>
                 </a>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <a href="/" target="_blank" class="dropdown-item">
-                        <i class="fas fa-home mr-2"></i> 网站首页
-                    </a>
-                    <a href="javascript:" id="update-cache" class="dropdown-item">
-                        <i class="fas fa-sync-alt mr-2"></i> 清理缓存
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="javascript:" id="login-out" class="dropdown-item text-danger">
-                        <i class="fas fa-power-off mr-2"></i> 安全退出
-                    </a>
-                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link js_clear_cash" href="javascript:;" title="清空缓存">
+                    <i class="fas fa-sync-alt"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/" target="_blank" title="前台首页">
+                    <i class="fas fa-home"></i>
+                </a>
             </li>
         </ul>
     </nav>
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-dark-default elevation-4">
         <!-- Brand Logo -->
-        <a href="{{route('system.index')}}" class="brand-link">
-            <img src="/mycms/admin/images/logo-sm.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                 style="opacity: .8">
-            <span class="brand-text font-weight-light">{{system_config('site_name')}}</span>
+        <a href="{{str_replace("/admin/", "/" . (system_config('admin_prefix') ?: 'admin') . "/", '/admin/Index/index')}}" class="brand-link">
+            <img src="/static/plugins/AdminLTE/dist/img/AdminLTELogo.png" alt="MyCms" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <span class="brand-text font-weight-light">MyCms</span>
         </a>
 
         <!-- Sidebar -->
@@ -148,118 +153,54 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <!-- 可根据实际情况添加用户头像 -->
-                    <img src="/mycms/admin/images/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    <img src="/static/plugins/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle elevation-2">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">{{$auth_admin_user->name}}</a>
-                    <span class="text-muted">{{$auth_admin_user->role->role_name}}</span>
+                    <a href="{{str_replace("/admin/", "/" . (system_config('admin_prefix') ?: 'admin') . "/", '/admin/Admin/edit')}}" class="d-block">{{$auth_admin_user->name}}</a>
+                </div>
+            </div>
+
+            <!-- SidebarSearch Form -->
+            <div class="form-inline">
+                <div class="input-group" data-widget="sidebar-search">
+                    <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                    <div class="input-group-append">
+                        <button class="btn btn-sidebar">
+                            <i class="fas fa-search fa-fw"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
 
             <!-- Sidebar Menu -->
-            <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                    data-accordion="false">
-                    <li class="nav-header">Dashboard</li>
-                    <li class="nav-item">
-                        <a href="/admin" class="nav-link">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>控制台首页</p>
-                        </a>
-                    </li>
-                    <li class="nav-header">System Menu</li>
+            <nav class="mt-2 mb-2">
+                <ul class="nav nav-pills no_radius nav-sidebar flex-column nav-child-indent js_left_menu_show" data-widget="treeview" role="menu" data-accordion="true">
+                    <li data-item="0" class="nav-header nav-item_0">主导航</li>
                     @foreach($system_menus[0] as $menu)
-                        @if(isset($system_menus[$menu['id']]))
-                            <li class="nav-item has-treeview">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon {{$menu['icon']}}"></i>
-                                    <p>
-                                        {{$menu['title']}}
+                        <li data-item="0" class="nav-item nav-item_0 has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="{{$menu['icon']}} nav-icon"></i>
+                                <p>
+                                    {{$menu['title']}}
+                                    @if(isset($system_menus[$menu['id']]))
                                         <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
+                                    @endif
+                                </p>
+                            </a>
+                            @if(isset($system_menus[$menu['id']]))
                                 <ul class="nav nav-treeview">
                                     @foreach($system_menus[$menu['id']] as $child)
-                                        <li class="nav-item">
-                                            <a href="{{str_replace("/admin/", "/" . (system_config('admin_prefix') ?: 'admin') . "/", $child['url'])}}"
-                                               class="nav-link">
-                                                <i class="far fa-circle nav-icon"></i>
+                                        <li class="nav-item ">
+                                            <a href="{{str_replace("/admin/", "/" . (system_config('admin_prefix') ?: 'admin') . "/", $child['url'])}}" class="nav-link">
+                                                <i class="{{$child['icon']}} nav-icon"></i>
                                                 <p>{{$child['title']}}</p>
                                             </a>
                                         </li>
                                     @endforeach
                                 </ul>
-                            </li>
-                        @else
-                            <li class="nav-item">
-                                <a href="{{str_replace("/admin/", "/" . (system_config('admin_prefix') ?: 'admin') . "/", $menu['url'])}}"
-                                   class="nav-link">
-                                    <i class="nav-icon {{$menu['icon']}}"></i>
-                                    <p>{{$menu['title']}}</p>
-                                </a>
-                            </li>
-                        @endif
+                            @endif
+                        </li>
                     @endforeach
-                    <li class="nav-header">Tools</li>
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-wallet"></i>
-                            <p>
-                                支付示例
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{myRoute('system.demo.pay.alipay')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>支付宝</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{myRoute('system.demo.pay.wechat')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>微信支付</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                图标大全
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{myRoute('system.icons', ['ident' => 'materialdesign'])}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Material Design</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{myRoute('system.icons', ['ident' => 'dripicons'])}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Dripicons</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{myRoute('system.icons', ['ident' => 'fontawesome'])}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Font awesome</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{myRoute('system.icons', ['ident' => 'themify'])}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Themify Icons</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
@@ -267,81 +208,115 @@
         <!-- /.sidebar -->
     </aside>
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">{{$current_page_name}}</h1>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="/admin">{{system_config('site_name')}}</a></li>
-                            @if($prev_page_name)
-                                <li class="breadcrumb-item"><a
-                                        href="{{$prev_page_url ?: ''}}">{{$prev_page_name}}</a></li>
-                            @endif
-                            <li class="breadcrumb-item active">{{$current_page_name}}</li>
-                        </ol>
-                    </div>
-                    <div class="col-sm-6">
-                        @if($prev_page_url)
-                            <div class="float-right">
-                                <a href="{{$prev_page_url}}" class="btn btn-success">返回列表</a>
+    <script>
+        // 主导航、内容管理切换
+        $(".js_left_menu li").click(function () {
+            // 通过 .index()方法获取元素下标（从0开始）
+            var _index = $(this).index();
+            // 让左侧菜单第 _index 个显示出来，其他的隐藏起来
+            $(".js_left_menu_show > li").hide();
+            $(".js_left_menu_show > li.nav-item_" + _index).show();
+            // 当前菜单添加选中效果，同级的移除选中效果
+            $(this).addClass('active').siblings('li').removeClass('active');
+        });
+
+        // 清空缓存
+        $(".js_clear_cash").click(function () {
+            var url = "{{str_replace("/admin/", "/" . (system_config('admin_prefix') ?: 'admin') . "/", '/admin/index/clear')}}";
+            $.modal.confirm('确定要清除缓存吗？', function () {
+                $.post(url, {
+                    del: true
+                }, function (result) {
+                    if (result.error == 0) {
+                        $.modal.alertSuccess(result.msg, function (index) {
+                            layer.close(index);
+                            $.pjax.reload('.content-wrapper'); // pjax 重载
+                        });
+                    } else {
+                        $.modal.alertError(result.msg);
+                    }
+                });
+            });
+        });
+    </script>
+
+    <div class="content-wrapper iframe-mode" data-widget="iframe" data-loading-screen="600">
+        <div class="nav navbar navbar-expand navbar-white navbar-light border-bottom p-0">
+            <div class="nav-item dropdown">
+                <a class="nav-link bg-danger dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Close</a>
+                <div class="dropdown-menu mt-0">
+                    <a class="dropdown-item" href="#" data-widget="iframe-close" data-type="all">Close All</a>
+                    <a class="dropdown-item" href="#" data-widget="iframe-close" data-type="all-other">Close All Other</a>
+                </div>
+            </div>
+            <a class="nav-link bg-light" href="#" data-widget="iframe-scrollleft"><i class="fas fa-angle-double-left"></i></a>
+            <ul class="navbar-nav overflow-hidden" role="tablist"></ul>
+            <a class="nav-link bg-light" href="#" data-widget="iframe-scrollright"><i class="fas fa-angle-double-right"></i></a>
+            <a class="nav-link bg-light" href="#" data-widget="iframe-fullscreen"><i class="fas fa-expand"></i></a>
+        </div>
+        <div class="tab-content">
+            <div class="tab-empty">
+                
+            </div>
+            <!--<div class="tab-loading">
+                <div>
+                    <h2 class="display-4">loading <i class="fa fa-sync fa-spin"></i></h2>
+                </div>
+            </div>-->
+        </div>
+
+        <!-- 页面内容 -->
+        <div class="page-content">
+            <!-- start page title -->
+            <div class="page-title-box">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-sm-6">
+                            <div class="page-title">
+                                <h4>{{$current_page_name}}</h4>
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a
+                                            href="{{str_replace("/admin/", "/" . (system_config('admin_prefix') ?: 'admin') . "/", '/admin')}}">{{system_config('site_name')}}</a></li>
+                                    @if($prev_page_name)
+                                        <li class="breadcrumb-item"><a
+                                                href="{{$prev_page_url ?: ''}}">{{$prev_page_name}}</a></li>
+                                    @endif
+                                    <li class="breadcrumb-item active">{{$current_page_name}}</li>
+                                </ol>
                             </div>
-                        @endif
+                        </div>
+                        <div class="col-sm-6">
+                            @if($prev_page_url)
+                                <div class="float-end d-none d-sm-block">
+                                    <a href="{{$prev_page_url}}" class="btn btn-success">返回列表</a>
+                                </div>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- /.content-header -->
+            <!-- end page title -->
 
-        <!-- Main content -->
-        <section class="content">
-            <div class="container-fluid">
-                @yield('container-fluid')
-            </div>
-        </section>
-        <!-- /.content -->
+            @yield('container-fluid')
+        </div>
     </div>
     <!-- /.content-wrapper -->
 
-    <!-- Footer -->
     <footer class="main-footer">
-        <div class="float-right d-none d-sm-inline">
-            <!-- 可根据需要添加右侧内容 -->
+        <strong>Copyright &copy; {{date('Y')}} 东莞市一码网络科技有限公司版权所有.</strong>
+        <div class="float-right d-none d-sm-inline-block">
+            <!-- 这里可以添加版本信息 -->
         </div>
-        <strong>© {{date('Y')}} 东莞市一码网络科技有限公司版权所有.</strong>
     </footer>
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
         <!-- Control sidebar content goes here -->
-        <div class="p-3">
-            <h5>设置风格</h5>
-            <div class="mb-2">
-                <img src="/mycms/admin/images/layouts/layout-1.jpg" class="img-fluid img-thumbnail" alt="layout-1">
-            </div>
-            <div class="form-check form-switch mb-3">
-                <input class="form-check-input theme-choice" type="checkbox" id="light-mode-switch" checked>
-                <label class="form-check-label" for="light-mode-switch">明亮模式</label>
-            </div>
-            <div class="mb-2">
-                <img src="/mycms/admin/images/layouts/layout-2.jpg" class="img-fluid img-thumbnail" alt="layout-2">
-            </div>
-            <div class="form-check form-switch mb-3">
-                <input class="form-check-input theme-choice" type="checkbox" id="dark-mode-switch"
-                       data-bsStyle="/mycms/admin/css/bootstrap-dark.min.css"
-                       data-appStyle="/mycms/admin/css/app-dark.min.css">
-                <label class="form-check-label" for="dark-mode-switch">暗黑模式</label>
-            </div>
-        </div>
     </aside>
     <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery -->
 <!-- Bootstrap 4 -->
 <script src="/static/plugins/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- daterangepicker -->
@@ -384,20 +359,6 @@
 <script src="/static/plugins/jquery-treegrid/js/jquery.treegrid.js"></script>
 <script src="/static/plugins/bootstrap-table/extensions/treegrid/bootstrap-table-treegrid.js"></script>
 
-<script>
-    $('#update-cache').click(function () {
-        myAdmin.request.get('/admin/update-cache', {}, function () {
-            myAdmin.message.success('更新成功');
-        });
-    });
-    $('#login-out').click(function () {
-        myAdmin.request.get('/admin/logout', {}, function () {
-            myAdmin.message.success('退出成功', function () {
-                window.location = '/admin/login';
-            });
-        });
-    });
-</script>
 
 <div id="extend-javascript">
     @yield('extend-javascript')
