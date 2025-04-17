@@ -2,8 +2,6 @@
 <html lang="en">
 
 <head>
-
-
     <meta charset="utf-8"/>
     <title>管理后台 - {{system_config('site_name')}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,32 +9,67 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="/mycms/admin/images/logo-sm.png">
 
-    <!-- plugin css -->
-    <link href="/mycms/admin/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet"
-          type="text/css"/>
+    <!-- AdminLTE CSS -->
+       <!-- layui -->
+    <link rel="stylesheet" href="/static/plugins/layui/css/layui.css">
+<!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/google-fonts/google.fonts.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/fontawesome-free/css/all.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet" href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css">
+<!-- Tempusdominus Bootstrap 4 -->
+<link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+<!-- iCheck -->
+<link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="/static/plugins/AdminLTE/dist/css/AdminLTE.min.css">
+<!-- overlayScrollbars -->
+<link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+<!-- Daterange picker -->
+<link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/daterangepicker/daterangepicker.css">
+<!-- Bootstrap Color Picker -->
+<link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+<!-- Toastr -->
+<link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/toastr/toastr.min.css">
+<!-- pace-progress -->
+<link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/pace-progress/themes/black/pace-theme-flat-top.css">
+<!-- jQuery -->
+<script src="/static/plugins/AdminLTE/plugins/jquery/jquery.min.js"></script>
+<!-- layui -->
+<script src="/static/plugins/layui/layui.js"></script>
+<!-- webuploader -->
+<link rel="stylesheet" href="/static/plugins/webuploader-0.1.5/webuploader.css">
+<script src="/static/plugins/webuploader-0.1.5/webuploader.min.js"></script>
+<!-- ckeditor4 -->
+<script src="/static/plugins/ckeditor/ckeditor.js"></script>
+<!-- Bootstrap Table -->
+<link rel="stylesheet" href="/static/plugins/bootstrap-table/bootstrap-table.min.css" />
+<!-- layer 弹层组件 -->
+<script>
+    layui.use('layer',
+        function () {
+            var layer = layui.layer;
+        })
+</script>
+<!-- zTree 树节点组件 -->
+<script type="text/javascript" src="/static/plugins/zTree_v3/js/jquery.ztree.core.js"></script>
+<script type="text/javascript" src="/static/plugins/zTree_v3/js/jquery.ztree.excheck.js"></script>
+<!-- jQueryTagsInput -->
+<link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/jQueryTagsInput/jquery.tagsinput.css">
+<script src="/static/plugins/AdminLTE/plugins/jQueryTagsInput/jquery.tagsinput.js"></script>
+<!-- Select2 -->
+<link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/select2/css/select2.min.css">
+<link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+<script src="/static/plugins/AdminLTE/plugins/select2/js/select2.full.min.js"></script>
+<!-- CodeMirror -->
+<link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/codemirror/codemirror.css">
+<link rel="stylesheet" href="/static/plugins/AdminLTE/plugins/codemirror/theme/monokai.css">
 
-    <!-- Bootstrap Css -->
-    <link href="/mycms/admin/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css"/>
-    <!-- Icons Css -->
-    <link href="/mycms/admin/css/icons.min.css" rel="stylesheet" type="text/css"/>
-    <!-- App Css-->
-    <link href="/mycms/admin/css/app.min.css" id="app-style" rel="stylesheet" type="text/css"/>
-
-    <!-- Sweet Alert-->
-    <link href="/mycms/admin/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css"/>
-
-    <!-- DataTables -->
-    <link href="/mycms/admin/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet"
-          type="text/css"/>
-    <link href="/mycms/admin/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet"
-          type="text/css"/>
-
-    <!-- Responsive Table css -->
-    <link href="/mycms/admin/libs/admin-resources/rwd-table/rwd-table.min.css" rel="stylesheet" type="text/css"/>
-
-    <link href="/mycms/admin/css/nprogress.css" rel="stylesheet" type="text/css"/>
-
-    <link rel="stylesheet" href="https://static.zaixianjisuan.com/public/css/bootstrap-datetimepicker.min.css">
+<!-- SIYUCMS -->
+<link rel="stylesheet" href="/static/plugins/AdminLTE/dist/css/siyucms.css?v=20211203">
+<script src="/static/plugins/siyu-ui.js?v=20211203"></script>
+<script src="/static/plugins/siyucms.js?v=20211203"></script>
 
     <style>
         .text-end-cms {
@@ -53,362 +86,303 @@
     <script>
         const SYSTEM_PREFIX = '{{system_config('admin_prefix') ?: 'admin'}}';
     </script>
-
 </head>
 
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
 
-<body>
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="{{route('system.index')}}" class="nav-link">首页</a>
+            </li>
+        </ul>
 
-<!-- Begin page -->
-<div id="layout-wrapper">
-
-    <header id="page-topbar">
-        <div class="navbar-header">
-            <div class="d-flex">
-
-                <!-- LOGO -->
-                <div class="navbar-brand-box">
-                    <a href="{{route('system.index')}}" class="logo logo-dark">
-                        <span class="logo-sm">
-                            <img src="/mycms/admin/images/logo-sm.png" alt="" height="22">
-                        </span>
-                        <span class="logo-lg">
-                            <img src="/mycms/admin/images/logo-dark.png" alt="" height="20">
-                        </span>
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+            <!-- Full screen button -->
+            <li class="nav-item">
+                <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                </a>
+            </li>
+            <!-- User dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <span class="d-none d-xl-inline-block ms-1">{{$auth_admin_user->name}}</span>
+                    <i class="fas fa-angle-down"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <a href="/" target="_blank" class="dropdown-item">
+                        <i class="fas fa-home mr-2"></i> 网站首页
                     </a>
-
-                    <a href="{{route('system.index')}}" class="logo logo-light">
-                        <span class="logo-sm">
-                            <img src="/mycms/admin/images/logo-sm.png" alt="" height="22">
-                        </span>
-                        <span class="logo-lg">
-                            <img src="/mycms/admin/images/logo-light.png" alt="" height="20">
-                        </span>
+                    <a href="javascript:" id="update-cache" class="dropdown-item">
+                        <i class="fas fa-sync-alt mr-2"></i> 清理缓存
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="javascript:" id="login-out" class="dropdown-item text-danger">
+                        <i class="fas fa-power-off mr-2"></i> 安全退出
                     </a>
                 </div>
+            </li>
+        </ul>
+    </nav>
+    <!-- /.navbar -->
 
-                <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect"
-                        id="vertical-menu-btn">
-                    <i class="mdi mdi-menu"></i>
-                </button>
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="{{route('system.index')}}" class="brand-link">
+            <img src="/mycms/admin/images/logo-sm.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                 style="opacity: .8">
+            <span class="brand-text font-weight-light">{{system_config('site_name')}}</span>
+        </a>
 
-            </div>
-
-            <div class="d-flex">
-
-                <div class="dropdown d-none d-lg-inline-block ms-1">
-                    <button type="button" class="btn header-item noti-icon waves-effect" data-toggle="fullscreen">
-                        <i class="mdi mdi-fullscreen"></i>
-                    </button>
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <!-- 可根据实际情况添加用户头像 -->
+                    <img src="/mycms/admin/images/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                 </div>
-
-                <div class="dropdown d-inline-block">
-                    <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="d-none d-xl-inline-block ms-1">{{$auth_admin_user->name}}</span>
-                        <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-end">
-                        <!-- item-->
-                        <a class="dropdown-item" href="/" target="_blank"><i
-                                class="dripicons-home font-size-16 align-middle me-1"></i> 网站首页</a>
-                        <a class="dropdown-item d-block" id="update-cache" href="javascript:"><i
-                                class="dripicons-gear font-size-16 align-middle me-1"></i> 清理缓存</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-danger" id="login-out" href="javascript:"><i
-                                class="dripicons-power font-size-16 align-middle me-1 text-danger"></i> 安全退出</a>
-                    </div>
-                </div>
-
-                <div class="dropdown d-inline-block">
-                    <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
-                        <i class="mdi mdi-cog-outline font-size-20"></i>
-                    </button>
-                </div>
-
-            </div>
-        </div>
-    </header>
-
-    <!-- ========== Left Sidebar Start ========== -->
-    <div class="vertical-menu">
-
-        <div data-simplebar class="h-100">
-
-
-            <div class="user-sidebar text-center">
-                <div class="dropdown">
-                    <div class="user-info">
-                        <h5 class="mt-3 font-size-16 text-white">{{$auth_admin_user->name}}</h5>
-                        <span class="font-size-13 text-white-50">{{$auth_admin_user->role->role_name}}</span>
-                    </div>
+                <div class="info">
+                    <a href="#" class="d-block">{{$auth_admin_user->name}}</a>
+                    <span class="text-muted">{{$auth_admin_user->role->role_name}}</span>
                 </div>
             </div>
 
-
-            <!--- Sidemenu -->
-            <div id="sidebar-menu">
-                <!-- Left Menu Start -->
-                <ul class="metismenu list-unstyled" id="side-menu">
-                    <li class="menu-title">Dashboard</li>
-                    <li>
-                        <a href="/admin" class="waves-effect">
-                            <i class="dripicons-home"></i>
-                            <span>控制台首页</span>
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
+                    <li class="nav-header">Dashboard</li>
+                    <li class="nav-item">
+                        <a href="/admin" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>控制台首页</p>
                         </a>
                     </li>
-                    <li class="menu-title">System Menu</li>
+                    <li class="nav-header">System Menu</li>
                     @foreach($system_menus[0] as $menu)
-                        <li>
-                            @if(system_admin_role_id() == 1)
-                                <a href="javascript: void(0);"
-                                   @if(isset($system_menus[$menu['id']])) class="has-arrow waves-effect" @endif>
-                                    <i class="{{$menu['icon']}}"></i>
-                                    <span>{{$menu['title']}}</span>
+                        @if(isset($system_menus[$menu['id']]))
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon {{$menu['icon']}}"></i>
+                                    <p>
+                                        {{$menu['title']}}
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
                                 </a>
-                            @else
-                                @if(isset($system_menus[$menu['id']]))
-                                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                        <i class="{{$menu['icon']}}"></i>
-                                        <span>{{$menu['title']}}</span>
-                                    </a>
-                                @endif
-                            @endif
-
-                            @if(isset($system_menus[$menu['id']]))
-                                <ul class="sub-menu" aria-expanded="false">
+                                <ul class="nav nav-treeview">
                                     @foreach($system_menus[$menu['id']] as $child)
-                                        <li>
-                                            <a href="{{str_replace("/admin/", "/" . (system_config('admin_prefix') ?: 'admin') . "/", $child['url'])}}"><span>{{$child['title']}}</span></a>
+                                        <li class="nav-item">
+                                            <a href="{{str_replace("/admin/", "/" . (system_config('admin_prefix') ?: 'admin') . "/", $child['url'])}}"
+                                               class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>{{$child['title']}}</p>
+                                            </a>
                                         </li>
                                     @endforeach
                                 </ul>
-                            @endif
-                        </li>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a href="{{str_replace("/admin/", "/" . (system_config('admin_prefix') ?: 'admin') . "/", $menu['url'])}}"
+                                   class="nav-link">
+                                    <i class="nav-icon {{$menu['icon']}}"></i>
+                                    <p>{{$menu['title']}}</p>
+                                </a>
+                            </li>
+                        @endif
                     @endforeach
-                    <li class="menu-title">Tools</li>
-                    <li>
-                        <a href="javascript: void(0);" class="has-arrow waves-effect">
-                            <i class="dripicons-wallet"></i>
-                            <span>支付示例</span>
+                    <li class="nav-header">Tools</li>
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-wallet"></i>
+                            <p>
+                                支付示例
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
                         </a>
-                        <ul class="sub-menu" aria-expanded="false">
-                            <li><a href="{{myRoute('system.demo.pay.alipay')}}">支付宝</a></li>
-                            <li><a href="{{myRoute('system.demo.pay.wechat')}}">微信支付</a></li>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{myRoute('system.demo.pay.alipay')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>支付宝</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{myRoute('system.demo.pay.wechat')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>微信支付</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="javascript: void(0);" class="has-arrow waves-effect">
-                            <i class="dripicons-basket"></i>
-                            <span>图标大全</span>
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                图标大全
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
                         </a>
-                        <ul class="sub-menu" aria-expanded="false">
-                            <li><a href="{{myRoute('system.icons', ['ident' => 'materialdesign'])}}">Material Design</a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{myRoute('system.icons', ['ident' => 'materialdesign'])}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Material Design</p>
+                                </a>
                             </li>
-                            <li><a href="{{myRoute('system.icons', ['ident' => 'dripicons'])}}">Dripicons</a></li>
-                            <li><a href="{{myRoute('system.icons', ['ident' => 'fontawesome'])}}">Font awesome</a></li>
-                            <li><a href="{{myRoute('system.icons', ['ident' => 'themify'])}}">Themify Icons</a></li>
+                            <li class="nav-item">
+                                <a href="{{myRoute('system.icons', ['ident' => 'dripicons'])}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Dripicons</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{myRoute('system.icons', ['ident' => 'fontawesome'])}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Font awesome</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{myRoute('system.icons', ['ident' => 'themify'])}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Themify Icons</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
-            </div>
-            <!-- Sidebar -->
+            </nav>
+            <!-- /.sidebar-menu -->
         </div>
-    </div>
-    <!-- Left Sidebar End -->
+        <!-- /.sidebar -->
+    </aside>
 
-    <!-- ============================================================== -->
-    <!-- Start right Content here -->
-    <!-- ============================================================== -->
-    <div id="main-content" class="main-content">
-
-        <div class="page-content">
-
-            <!-- start page title -->
-            <div class="page-title-box">
-                <div class="container-fluid">
-                    <div class="row align-items-center">
-                        <div class="col-sm-6">
-                            <div class="page-title">
-                                <h4>{{$current_page_name}}</h4>
-                                <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a
-                                            href="/admin">{{system_config('site_name')}}</a></li>
-                                    @if($prev_page_name)
-                                        <li class="breadcrumb-item"><a
-                                                href="{{$prev_page_url ?: ''}}">{{$prev_page_name}}</a></li>
-                                    @endif
-                                    <li class="breadcrumb-item active">{{$current_page_name}}</li>
-                                </ol>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            @if($prev_page_url)
-                                <div class="float-end d-none d-sm-block">
-                                    <a href="{{$prev_page_url}}" class="btn btn-success">返回列表</a>
-                                </div>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end page title -->
-
-            @yield('container-fluid')
-
-        </div>
-        <!-- End Page-content -->
-
-        <footer class="footer">
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
             <div class="container-fluid">
-                <div class="row">
+                <div class="row mb-2">
                     <div class="col-sm-6">
-                        © {{date('Y')}} 东莞市一码网络科技有限公司版权所有.
+                        <h1 class="m-0 text-dark">{{$current_page_name}}</h1>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/admin">{{system_config('site_name')}}</a></li>
+                            @if($prev_page_name)
+                                <li class="breadcrumb-item"><a
+                                        href="{{$prev_page_url ?: ''}}">{{$prev_page_name}}</a></li>
+                            @endif
+                            <li class="breadcrumb-item active">{{$current_page_name}}</li>
+                        </ol>
                     </div>
                     <div class="col-sm-6">
-                        <div class="text-sm-end d-none d-sm-block">
-                        </div>
+                        @if($prev_page_url)
+                            <div class="float-right">
+                                <a href="{{$prev_page_url}}" class="btn btn-success">返回列表</a>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
-        </footer>
-    </div>
-    <!-- end main content-->
-
-</div>
-<!-- END layout-wrapper -->
-
-<!-- Right Sidebar -->
-<div class="right-bar">
-    <div data-simplebar class="h-100">
-        <div class="rightbar-title d-flex align-items-center px-3 py-4">
-
-            <h5 class="m-0 me-2">设置风格</h5>
-
-            <a href="javascript:void(0);" class="right-bar-toggle ms-auto">
-                <i class="mdi mdi-close noti-icon"></i>
-            </a>
         </div>
+        <!-- /.content-header -->
 
-        <!-- Settings -->
-        <hr class="mt-0"/>
-        <h6 class="text-center mb-0">选择后台风格</h6>
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                @yield('container-fluid')
+            </div>
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
 
-        <div class="p-4">
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="float-right d-none d-sm-inline">
+            <!-- 可根据需要添加右侧内容 -->
+        </div>
+        <strong>© {{date('Y')}} 东莞市一码网络科技有限公司版权所有.</strong>
+    </footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+        <div class="p-3">
+            <h5>设置风格</h5>
             <div class="mb-2">
                 <img src="/mycms/admin/images/layouts/layout-1.jpg" class="img-fluid img-thumbnail" alt="layout-1">
             </div>
-
             <div class="form-check form-switch mb-3">
-                <input class="form-check-input theme-choice" type="checkbox"
-                       id="light-mode-switch" checked>
+                <input class="form-check-input theme-choice" type="checkbox" id="light-mode-switch" checked>
                 <label class="form-check-label" for="light-mode-switch">明亮模式</label>
             </div>
-
             <div class="mb-2">
                 <img src="/mycms/admin/images/layouts/layout-2.jpg" class="img-fluid img-thumbnail" alt="layout-2">
             </div>
             <div class="form-check form-switch mb-3">
-                <input class="form-check-input theme-choice" type="checkbox"
-                       id="dark-mode-switch"
+                <input class="form-check-input theme-choice" type="checkbox" id="dark-mode-switch"
                        data-bsStyle="/mycms/admin/css/bootstrap-dark.min.css"
                        data-appStyle="/mycms/admin/css/app-dark.min.css">
                 <label class="form-check-label" for="dark-mode-switch">暗黑模式</label>
             </div>
-
-
         </div>
-
-    </div> <!-- end slimscroll-menu-->
+    </aside>
+    <!-- /.control-sidebar -->
 </div>
-<!-- /Right-bar -->
+<!-- ./wrapper -->
 
-<!-- Right bar overlay-->
-<div class="rightbar-overlay"></div>
-
-<script>
-    let defaultEditor = '{{$system_editor}}';
-</script>
-
-<!-- JAVASCRIPT -->
-<script src="/mycms/admin/libs/jquery/jquery.min.js"></script>
-<script src="/mycms/admin/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/mycms/admin/libs/metismenu/metisMenu.min.js"></script>
-<script src="/mycms/admin/libs/simplebar/simplebar.min.js"></script>
-<script src="/mycms/admin/libs/node-waves/waves.min.js"></script>
-
-<!-- apexcharts -->
-<script src="/mycms/admin/libs/apexcharts/apexcharts.min.js"></script>
-
-<script src="/mycms/admin/libs/parsleyjs/parsley.min.js"></script>
-<script src="/mycms/admin/libs/parsleyjs/i18n/zh_cn.js"></script>
-
-<!-- Sweet Alerts js -->
-<script src="/mycms/admin/libs/sweetalert2/sweetalert2.min.js"></script>
-
-<!-- Responsive Table js -->
-<script src="/mycms/admin/libs/admin-resources/rwd-table/rwd-table.min.js"></script>
-
-<script src="/mycms/admin/libs/moment/min/moment.min.js"></script>
-
-<!-- Editor js -->
-@if($system_editor == '' || $system_editor == 'ck')
-    <script src="/mycms/admin/libs/ckeditor/ckeditor.js"></script>
-@elseif ($system_editor == 'md')
-    <link rel="stylesheet" href="/mycms/admin/editormd/css/editormd.css"/>
-    <script src="/mycms/admin/editormd/editormd.min.js"></script>
-@else
-
-    <link rel="stylesheet" href="/mycms/admin/libs/neditor/third-party/xiumi/xiumi-ue-v5.css"
-          media="all">
-
-    <script type="text/javascript"
-            src="/mycms/admin/libs/neditor/neditor.config.js"></script>
-    <script type="text/javascript"
-            src="/mycms/admin/libs/neditor/third-party/zeroclipboard/ZeroClipboard.js"></script>
-    <script type="text/javascript"
-            src="/mycms/admin/libs/neditor/neditor.all.js"></script>
-    <script type="text/javascript"
-            src="/mycms/admin/libs/neditor/neditor.service.js"></script>
-    <script type="text/javascript"
-            src="/mycms/admin/libs/neditor/third-party/xiumi/xiumi-ue-dialog-v5.js"></script>
-
-@endif
-
-@if(auth()->guard('admin')->user())
-    <script>var system_admin_role_id = {{system_admin_role_id()}};</script>
-    <script>var admin_role_nodes = {!! json_encode($admin_role_nodes) !!};</script>
-@endif
-
-
-
-<!-- Required datatable js -->
-<script src="/mycms/admin/libs/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="/mycms/admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-<!-- Buttons examples -->
-<script src="/mycms/admin/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-<script src="/mycms/admin/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
-<script src="/mycms/admin/libs/jszip/jszip.min.js"></script>
-<script src="/mycms/admin/libs/pdfmake/build/pdfmake.min.js"></script>
-<script src="/mycms/admin/libs/pdfmake/build/vfs_fonts.js"></script>
-<script src="/mycms/admin/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
-<script src="/mycms/admin/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
-<script src="/mycms/admin/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
-
-<!-- Plugins js -->
-<script src="/mycms/admin/libs/dropzone/min/dropzone.min.js"></script>
-<script src="/mycms/admin/js/jquery-ui.js"></script>
-
-<!-- Plugins js-->
-<script src="/mycms/admin/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="/mycms/admin/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
-<script src="/mycms/admin/js/app.js"></script>
-<script src="/mycms/admin/js/admin.js"></script>
-<script src="/mycms/admin/js/jquery.pjax.js"></script>
-<script src="/mycms/admin/js/nprogress.js"></script>
-
-<script src="https://static.zaixianjisuan.com/public/js/bootstrap-datetimepicker.min.js"></script>
-<script src="https://static.zaixianjisuan.com/public/js/bootstrap-datetimepicker.zh-CN.js"></script>
+<!-- jQuery -->
+<!-- Bootstrap 4 -->
+<script src="/static/plugins/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- daterangepicker -->
+<script src="/static/plugins/AdminLTE/plugins/moment/moment.min.js"></script>
+<script src="/static/plugins/AdminLTE/plugins/moment/locale/zh-cn.js"></script>
+<script src="/static/plugins/AdminLTE/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap color picker -->
+<script src="/static/plugins/AdminLTE/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="/static/plugins/AdminLTE/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="/static/plugins/AdminLTE/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- Toastr -->
+<script src="/static/plugins/AdminLTE/plugins/toastr/toastr.min.js"></script>
+<!-- pace-progress -->
+<script src="/static/plugins/AdminLTE/plugins/pace-progress/pace.min.js"></script>
+<!-- Bootstrap Table 表格插件样式 -->
+<script src="/static/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="/static/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="/static/plugins/bootstrap-table/extensions/mobile/bootstrap-table-mobile.js"></script>
+<script src="/static/plugins/bootstrap-table/extensions/toolbar/bootstrap-table-toolbar.min.js"></script>
+<link rel="stylesheet" href="/static/plugins/bootstrap-table/extensions/fixed-columns/bootstrap-table-fixed-columns.min.css"/>
+<script src="/static/plugins/bootstrap-table/extensions/fixed-columns/bootstrap-table-fixed-columns.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/static/plugins/AdminLTE/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/static/plugins/AdminLTE/dist/js/demo.js"></script>
+<!-- pjax -->
+<script src="/static/plugins/AdminLTE/plugins/pjax/jquery.pjax.js"></script>
+<!-- jQueryForm -->
+<script src="/static/plugins/AdminLTE/plugins/jQueryForm/jquery.form.js"></script>
+<!-- CodeMirror -->
+<script src="/static/plugins/AdminLTE/plugins/codemirror/codemirror.js"></script>
+<script src="/static/plugins/AdminLTE/plugins/codemirror/mode/css/css.js"></script>
+<script src="/static/plugins/AdminLTE/plugins/codemirror/mode/xml/xml.js"></script>
+<script src="/static/plugins/AdminLTE/plugins/codemirror/mode/javascript/javascript.js"></script>
+<script src="/static/plugins/AdminLTE/plugins/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+<!-- jquery-treegrid -->
+<link rel="stylesheet" href="/static/plugins/jquery-treegrid/css/jquery.treegrid.css">
+<script src="/static/plugins/jquery-treegrid/js/jquery.treegrid.js"></script>
+<script src="/static/plugins/bootstrap-table/extensions/treegrid/bootstrap-table-treegrid.js"></script>
 
 <script>
     $('#update-cache').click(function () {
@@ -423,32 +397,11 @@
             });
         });
     });
-
-    $(document).on('click', '#sidebar-menu a,.btn-toolbar a,#currentTable a,.page-title-box a', function (event) {
-        $.pjax.click(event, {container: '#main-content'});
-        $('#sidebar-menu a').removeClass('active');
-    });
-
-    $(document).on('pjax:start', function () {
-        NProgress.start();
-    });
-    $(document).on('pjax:end', function () {
-        NProgress.done();
-    });
-    $(document).on('pjax:beforeSend', function (event) {
-        const url = event.currentTarget.URL;
-        myAdmin.history.push(url);
-    })
-    $(window).on('popstate', function () {
-        $.pjax({url: myAdmin.history[myAdmin.history.length - 1], container: '#main-content'})
-    });
 </script>
 
 <div id="extend-javascript">
     @yield('extend-javascript')
 </div>
-
-
 </body>
 
 </html>
